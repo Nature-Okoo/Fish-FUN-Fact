@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+
+  "name": "Fish FUN Facts",
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://*.google.com https://ajax.googleapis.com; object-src 'self'",
+  "description": "This extension shows fun facts about random fish",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "fish.png",
+    "default_popup": "fact.html"
+  },
+  "permissions": [
+    "activeTab",
+    "http://*/*", 
+    "https://*/*", 
+    "https://En.wikipedia.org/*",
+    "http://*.google.com/"
+  ],
+  "content_scripts": [{
+       "js": ["fact.js"],
+       "matches": ["http://*/*", "https://*/*"]
+  }]
+}
+
+
+
