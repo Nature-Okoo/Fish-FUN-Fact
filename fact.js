@@ -2,8 +2,8 @@
 
 function getImageInfo(searchTerm, callback, errorCallback) {
 
-    var Url = 'https://www.dnr.state.mn.us/fish/bigmouthbuffalo.html';
-    //var Url = 'http://www.dnr.state.mn.us/fish/yellowperch.html';
+    //var Url = 'https://www.dnr.state.mn.us/fish/bigmouthbuffalo.html';
+    var Url = 'http://www.dnr.state.mn.us/fish/yellowperch.html';
 
     var x = new XMLHttpRequest();
     x.open('GET', Url);
@@ -12,10 +12,15 @@ function getImageInfo(searchTerm, callback, errorCallback) {
         if (x.readyState==4 && x.status==200)
         {
             var response = x.responseText;
+            console.log(response);
+            console.log($(response));
             var right_content = $($(response).filter('div#page.container').html()).filter('div#right_content').html();
+            console.log($(right_content));
             var fishName = $(right_content).filter('h1').html();
+            console.log(fishName);
             var fishInfo = $(right_content).filter('p').html();
-            var imageSrc = $($(right_content).filter('p:nth-child(3)').html()).filter('img').prop('src');
+            console.log(fishInfo);
+            var imageSrc = $($(right_content).filter('p:last-child').html()).filter('img').prop('src');
             callback(imageSrc, fishName, fishInfo);
         } 
         
