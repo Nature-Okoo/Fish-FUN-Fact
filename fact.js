@@ -3,7 +3,7 @@
 function getImageInfo(searchTerm, callback, errorCallback) {
 
     //var Url = 'https://www.dnr.state.mn.us/fish/bigmouthbuffalo.html';
-    var Url = 'http://www.dnr.state.mn.us/fish/yellowperch.html';
+    var Url = 'http://www.dnr.state.mn.us/fish/' + searchTerm + '.html';
 
     var x = new XMLHttpRequest();
     x.open('GET', Url);
@@ -48,15 +48,18 @@ function renderStatus(statusText) {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    
     loadJQuery();
 
-    getImageInfo("mahi", function(imageSrc, fishName, fishInfo) {
+    var fishArray = [
+        'bigmouthbuffalo',
+        'yellowperch'
+    ];
+    var randomNumber = Math.floor(Math.random()*fishArray.length);
+
+    getImageInfo(fishArray[randomNumber], function(imageSrc, fishName, fishInfo) {
 
       var imageResult = document.getElementById('image-result');
      
-      //imageResult.width = width;
-      //imageResult.height = height;
       imageResult.src = imageSrc;
       imageResult.hidden = false;
 
