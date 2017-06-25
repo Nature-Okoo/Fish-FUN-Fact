@@ -33,7 +33,12 @@ function getImageInfo(searchTerm, callback, errorCallback) {
 }
 
 function loadJQuery(){
-
+    var t=document;
+    var o=t.createElement('script');
+    o=t.createElement('script');
+    o.setAttribute('type','text/javascript');
+    o.setAttribute('src','https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js');
+    t.lastChild.firstChild.appendChild(o);
 }
 
 
@@ -43,13 +48,8 @@ function renderStatus(statusText) {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    var t=document;
-    var o=t.createElement('script');
-    o=t.createElement('script');
-    o.setAttribute('type','text/javascript');
-    o.setAttribute('src','https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js');
-    t.lastChild.firstChild.appendChild(o);
-
+    
+    loadJQuery();
 
     getImageInfo("mahi", function(imageSrc, fishName, fishInfo) {
 
