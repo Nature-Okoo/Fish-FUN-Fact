@@ -1,11 +1,10 @@
 
 
-function getImageInfo(searchTerm, callback, errorCallback) {
+function getImageInfo(searchUrl, callback, errorCallback) {
 
-    var Url = 'http://www.dnr.state.mn.us/fish/' + searchTerm + '.html';
 
     var x = new XMLHttpRequest();
-    x.open('GET', Url);
+    x.open('GET', searchUrl);
     x.onreadystatechange=function()
     {
         if (x.readyState==4 && x.status==200)
@@ -58,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'whitesucker',
         'walleye/index',
         'trout/index',
-        'sunfish/index',
+        //'sunfish/index',
         'sauger',
         'salmon/index',
         //'muskellunge/index',
@@ -72,8 +71,9 @@ document.addEventListener('DOMContentLoaded', function() {
         'bass/index'
     ];
     var randomNumber = Math.floor(Math.random()*fishArray.length);
+    var searchUrl = 'http://www.dnr.state.mn.us/fish/' + fishArray[randomNumber]+ '.html';
 
-    getImageInfo(fishArray[randomNumber], function(imageSrc, fishName, fishInfo) {
+    getImageInfo(searchUrl, function(imageSrc, fishName, fishInfo) {
 
       var imageResult = document.getElementById('image-result');
      
