@@ -8,8 +8,13 @@
   "version": "0.0.1",
 
   "browser_action": {
-    "default_icon": "fish.png",
+    "default_icon": "images/fish.png",
     "default_popup": "fact.html"
+  },
+  "icons":{
+      "128": "images/icon.jpg",
+      "16": "images/icon.jpg",
+      "48": "images/icon.jpg"
   },
   "permissions": [
     "activeTab",
