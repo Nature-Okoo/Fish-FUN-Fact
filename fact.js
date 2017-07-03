@@ -55,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
         'bigmouthbuffalo',
         'yellowperch',
         'whitesucker',
-        'walleye/index',
         'trout/index',
         'sauger',
         'salmon/index',

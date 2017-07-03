@@ -5,7 +5,7 @@
   "short_name": "MN FUN Fish Facts",
   "content_security_policy": "script-src 'self' 'unsafe-eval' https://*.google.com https://ajax.googleapis.com; object-src 'self'",
   "description": "This extension randomly shows a fish from Minnesota and fun facts about the fish",
-  "version": "0.0.1",
+  "version": "0.0.3",
 
   "browser_action": {
     "default_icon": "images/fish.png",
